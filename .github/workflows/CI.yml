@@ -15,7 +15,7 @@ jobs:
     - run: |
         cd $env:TEMP
         Invoke-WebRequest -UserAgent "Wget" -Uri https://sourceforge.net/projects/lazarus/files/Lazarus%20Windows%2064%20bits/Lazarus%202.2.6/lazarus-2.2.6-fpc-3.2.2-cross-i386-win32-win64.exe/download -OutFile lazarus-cross.exe
-        lazarus-cross.exe /VERYSILENT /SP-
+        .\lazarus-cross.exe /SILENT /SP-
     - name: Build the Main Application
       run: lazbuild -B "Cheat Engine/cheatengine.lpi"
     - uses: actions/upload-artifact@v3
