@@ -1,0 +1,18 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: gcarreno/setup-lazarus@v3
+    - name: Build the Main Application
+      run: lazbuild -B "Cheat Engine/cheatengine.lpi"
+    - run: dir /S
+      shell: cmd
